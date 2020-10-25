@@ -6,14 +6,12 @@ public class movement2 : MonoBehaviour
 {
 
     public float turnSpeed = 7;
-    private Vector3 vel;
     private Vector3 acceleration;
     public float maxSpeed = 0.05f;
     public float maxReverse = 0.01f;
 
     void Start()
     {
-        vel = new Vector3(0, 0, 0);
         acceleration = new Vector3(0, 0, 0);
 
     }
@@ -21,22 +19,8 @@ public class movement2 : MonoBehaviour
     void FixedUpdate()
     {       
         
-        /*if (Input.GetKey(KeyCode.W))
-        {
-            float currentspeed = vel.magnitude;
-            vel.Normalize();
-            transform.Translate(0, acceleration.y, 0);
-            if (acceleration.y <=0.30)
-            {
-                
-                if (vel.magnitude <= maxSpeed)
-                {
-                    acceleration.y += 0.001f;
-                }
-            }
-          
-        }*/
 
+        //acceleration forwards
         if (Input.GetKey(KeyCode.W))
         {
            
@@ -52,22 +36,8 @@ public class movement2 : MonoBehaviour
 
         }
 
+        //brakes
         if (Input.GetKey(KeyCode.Space))
-        {
-            float currentspeed = vel.magnitude;
-            vel.Normalize();
-            transform.Translate(0, acceleration.y, 0);
-
-            if (acceleration.y >= maxReverse)
-            {
-                if (vel.magnitude >= -2 * maxSpeed)
-                {
-                    acceleration.y -= 0.005f;
-                }
-            }           
-        }
-
-        /*if (Input.GetKey(KeyCode.Space))
         {
             transform.Translate(0, acceleration.y, 0);
 
@@ -78,7 +48,7 @@ public class movement2 : MonoBehaviour
                     acceleration.y -= 0.005f;
                 }
             }
-        }*/
+        }
 
         //rotate car
         if (Input.GetKey(KeyCode.A))
